@@ -12,8 +12,8 @@ let PORT = 8080
 // jwt secret token
 app.set('secretKey', 'nodeRestApi');
 
-// connection to mongodb
-mongoose.connection.on('error', console.error.bind(console, 'MongoDB connection error:'));
+// // connection to mongodb
+// mongoose.connection.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 app.use(logger('dev'));
 app.use(bodyParser.urlencoded({extended: false}));
