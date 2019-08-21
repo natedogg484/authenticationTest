@@ -9,6 +9,7 @@ import './App.css';
 import Home from './components/Home';
 import Login from './components/Login';
 import Register from './components/Register';
+import Movies from './components/Movies';
 
 function App() {
   return (
@@ -26,7 +27,7 @@ function App() {
                   <a className="nav-link" href="/login">Login</a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="/Register">Register</a>
+                  <a className="nav-link" href="/Movies">Movies</a>
                 </li>
               </ul>
             </div>
@@ -37,6 +38,7 @@ function App() {
           <Route path='/' exact component={Home} />
           <Route path='/login' component={Login} />
           <Route path='/register' component={Register} />
+          <Route path='/movies' component={Movies} />
         </div>
       </Wrapper>
     </Router>

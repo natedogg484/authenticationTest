@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import './index.css'
+import axios from 'axios'
 
 export default class Register extends Component {
 
     constructor(props) {
         super(props);
-        this.state = { email: '', password: '' }
+        this.state = {name: '', email: '', password: '' }
     }
 
     handleChange = ({ target }) => {
@@ -14,9 +15,20 @@ export default class Register extends Component {
 
     handleSubmit = event => {
         event.preventDefault();
-        console.log(this.state.email)
-        console.log(this.state.password)
-        console.log(this.state.name)
+
+        const obj = {
+            name: this.state.name,
+            email: this.state.email,
+            password: this.state.password
+        };
+        axios.post('http://localhost:8080/users/register', obj)
+            .then(res => console.log(res.data))
+
+            this.setState({
+                name: '',
+                email: '',
+                password: ''
+            })
     }
 
     render() {
@@ -40,8 +52,9 @@ export default class Register extends Component {
                                     <label htmlFor="passowrd">Password</label>
                                     <input type='password' className='form-control' id='passwordInput' placeholder="Enter Password" name='password' value={this.state.password} onChange={this.handleChange}></input>
                                 </div>
-                                <button type='submit' className='btn btn-dark'>Submit</button>
+                                <button type='submit' className='btn btn-dark'>Register</button>
                             </form>
+                            
                         </div>
                     </div>
                 </div>

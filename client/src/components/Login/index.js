@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import './index.css'
+import axios from 'axios';
 
 export default class Login extends Component {
 
     constructor(props) {
         super(props);
-        this.state = { email: '', passowrd: '' }
+        this.state = { email: '', password: '' }
     }
 
     handleChange = ({ target }) => {
@@ -14,9 +15,18 @@ export default class Login extends Component {
 
     handleSubmit = event => {
         event.preventDefault();
-        console.log(this.state.email)
-        console.log(this.state.password)
-        console.log(this.state.name)
+
+        const obj = {
+            email: this.state.email,
+            password: this.state.password
+        };
+        axios.post('http://localhost:8080/users/authenticate', obj)
+            .then( res => console.log(res.data));
+
+        this.setState({
+            email: '',
+            password: ''
+        })
     }
 
     render() {
@@ -36,10 +46,11 @@ export default class Login extends Component {
                                     <label htmlFor="passowrd">Password</label>
                                     <input type='password' className='form-control' id='passwordInput' placeholder="Enter Password" name='password' value={this.state.password} onChange={this.handleChange}></input>
                                 </div>
-                                <button type='submit' className='btn btn-dark'>Submit</button>
+                                <button type='submit' className='btn btn-dark'>Login</button>
                             </form>
                         </div>
                     </div>
+                    <a href='/register'>To register for an account click here</a>
                 </div>
                 <div className='col-md-3'></div>
             </div>

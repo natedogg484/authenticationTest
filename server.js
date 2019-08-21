@@ -3,6 +3,7 @@ const logger = require('morgan');
 const movies = require('./routes/movies') ;
 const users = require('./routes/users');
 const bodyParser = require('body-parser');
+const cors = require('cors')
 const mongoose = require('./config/database'); //database configuration
 var jwt = require('jsonwebtoken');
 const app = express();
@@ -12,11 +13,10 @@ let PORT = 8080
 // jwt secret token
 app.set('secretKey', 'nodeRestApi');
 
-// // connection to mongodb
-// mongoose.connection.on('error', console.error.bind(console, 'MongoDB connection error:'));
-
+app.use(cors());
 app.use(logger('dev'));
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json())
 app.get('/', function(req, res){
 res.json({"tutorial" : "Build REST API with node.js"});
 });
