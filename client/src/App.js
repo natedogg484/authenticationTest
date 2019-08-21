@@ -1,44 +1,45 @@
 import React from 'react';
 // react router
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
-// wrapper
+// content wrapper
 import Wrapper from './components/Wrapper'
-// jumbotron
-import Jumbotron from 'react-bootstrap/Jumbotron'
-// Navbar
-import { Navbar, Nav } from 'react-bootstrap'
-// grid overlay
-import { Container } from 'react-bootstrap'
+// stylesheets
+import './App.css';
 // routes
 import Home from './components/Home';
 import Login from './components/Login';
 import Register from './components/Register';
-import Movies from './components/Movies';
 
 function App() {
   return (
     <Router>
       <Wrapper>
-        <Container>
-          {/* Navbar */}
-          <Navbar bg="dark">
-            <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="/register">Register</Nav.Link>
-            <Nav.Link href="/login">Login</Nav.Link>
-            <Nav.Link href="/movies">Movies</Nav.Link>
-          </Navbar>
-          {/* Jumbotron */}
-          <Jumbotron className='text-center'>
-            <h1>Auth Test</h1>
-          </Jumbotron>
-          {/* pathing pulls up the page specific components, layouts, and functions */}
+        <div className='container'>
+          <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a className="navbar-brand" href="/">Home</a>
+            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span className="navbar-toggler-icon"></span>
+            </button>
+            <div className="collapse navbar-collapse" id="navbarNav">
+              <ul className="navbar-nav">
+                <li className="nav-item">
+                  <a className="nav-link" href="/login">Login</a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link" href="/Register">Register</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+          <div className='jumbotron text-center'>
+            <h5>Practicing React, and User Inputs from within</h5>
+          </div>
           <Route path='/' exact component={Home} />
           <Route path='/login' component={Login} />
           <Route path='/register' component={Register} />
-          <Route path='/movies' component={Movies} />
-        </Container>
+        </div>
       </Wrapper>
-    </Router >
+    </Router>
   );
 }
 
