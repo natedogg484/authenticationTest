@@ -33,7 +33,7 @@ function App() {
             </div>
           </nav>
           <div className='jumbotron text-center'>
-            <h5>Practicing React, and User Inputs from within</h5>
+            <h5>Authentication Practice with React </h5>
           </div>
           <Route path='/' exact component={Home} />
           <Route path='/login' component={Login} />

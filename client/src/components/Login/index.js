@@ -43,7 +43,7 @@ export default class Login extends Component {
                                     <input type='email' className='form-control' id='emailInput' placeholder='Enter E-mail' name='email' value={this.state.email} onChange={this.handleChange}></input>
                                 </div>
                                 <div className='form-group'>
-                                    <label htmlFor="passowrd">Password</label>
+                                    <label htmlFor="password">Password</label>
                                     <input type='password' className='form-control' id='passwordInput' placeholder="Enter Password" name='password' value={this.state.password} onChange={this.handleChange}></input>
                                 </div>
                                 <button type='submit' className='btn btn-dark'>Login</button>

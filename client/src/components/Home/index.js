@@ -7,7 +7,7 @@ export default class Home extends Component {
             <div className='row'>
                 <div className='col-md-4'></div>
                 <div className='col-md-4 text-center'>
-                    Hello There
+                    Got it to work! This went really well at the end!!
           </div>
                 <div className='col-md-4'></div>
             </div>

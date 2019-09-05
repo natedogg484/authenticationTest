@@ -1,4 +1,4 @@
-//Set up mongoose connection
+//mongo connection configuration
 const mongoose = require('mongoose');
 
 const MONGO_USERNAME = 'nate';
@@ -11,9 +11,4 @@ const url = `mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_HOSTNAME}:${M
 
 mongoose.connect(url, {useNewUrlParser: true});
 
-// method given by tutorial
-// const mongoose = require('mongoose');
-// const mongoDB = 'mongodb://localhost/node_rest_api';
-// mongoose.connect(mongoDB);
-// mongoose.Promise = global.Promise;
-// module.exports = mongoose;
+const url = 'mongodb://nate:Ausfahrt1!@127.0.0.1:27017/flaskTest?authSource=admin'
